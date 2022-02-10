@@ -1,0 +1,3 @@
+bloc "Basic test";
+    mouli "Empty" "" "" 0;
+end;
