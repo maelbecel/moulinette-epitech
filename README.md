@@ -5,17 +5,15 @@ Moulinette pour norme, tests fonctionnels et fonctions bannis pour epitech 2022
 ## **Guide d'instalation**
 ```
 > $ git clone
-> $ cd 
+> $ cd moulinette-epitech
 > $ make install
 ```
 
 ## **Utilisation**
 ```
 > $ addmouli
-> $ cd tests
-> $ code .
 ```
-*Remplir les fichier de cette maniere :*
+*Remplir les fichiers contenus dans /tests de cette maniere :*
 ```
 bloc "Nom du bloc";
     mouli "Nom du test" "Commande a executer" "Affichage de la commande" valeur_de_retour;
