@@ -1,0 +1,57 @@
+#!/bin/bash
+
+BOLD="\e[1m"
+UNDERLINE="\e[4m"
+DEFAULT="\e[0m"
+PURPLE="\e[49;36m"
+GREEN="\e[49;92m"
+RED="\e[49;91m"
+ORANGE="\e[49;93m"
+
+TOTAL=0
+PASSED=0
+FAILED=0
+
+BLOC_TOTAL=0
+BLOC_PASSED=0
+BLOC_FAILED=0
+
+displayres() {
+    showbar $PASSED $TOTAL 33
+    echo  ""
+    echo -e "$PURPLE TOTAL $BOLD$TOTAL$DEFAULT |$GREEN PASSED $BOLD$PASSED$DEFAULT |$RED FAILED $BOLD$FAILED$DEFAULT"
+    echo -e "$BOLD ====================================$DEFAULT"
+}
+
+showbar() {
+    have=$1
+    on=$2
+    len=$3
+
+    percentage=$((have*100/on))
+    valid=$((percentage*len/100))
+    invalid=$((len-valid))
+    echo -e " $GREEN\c"
+    perl -E "print '█' x $valid"
+    echo -e "$DEFAULT$RED\c"
+    perl -E "print '█' x $invalid"
+    echo -e " $DEFAULT$BOLD$percentage$DEFAULT%"
+}
+
+bloc() {
+    echo -e " $ORANGE$BOLD$UNDERLINE$1$DEFAULT\n"
+}
+
+end() {
+    echo ""
+    echo -e " \c"
+    showbar $BLOC_PASSED $BLOC_TOTAL 20
+    echo -e "\n ========================\n"
+    BLOC_TOTAL=0
+    BLOC_PASSED=0
+    BLOC_FAILED=0
+}
+
+unit() {
+    echo "Done"
+}
