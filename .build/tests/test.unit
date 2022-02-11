@@ -1,0 +1,3 @@
+bloc "Basic test";
+    unit "Name" 0 "somme(2,3)" "" "5";
+end;
